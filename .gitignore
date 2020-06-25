@@ -1,0 +1,13 @@
+Add files here to make git ignore them.
+
+# Node Modules
+node_modules/*
+
+# Misc
+.idea/*
+.pyc/*
+
+*.pyc
+.*.swp
+
+db.sqlite3
