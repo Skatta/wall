@@ -97,7 +97,7 @@ def site(request, slug=None):
     template = django_engine.from_string(db_template.content)
 
     # Fetch Section Detail
-    sections = Section.objects.filter(page=wall.id)
+    sections = Section.objects.filter(page=wall.id).order_by('position')
 
     all_sections = []
     for section in sections:
