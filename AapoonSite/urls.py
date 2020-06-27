@@ -16,11 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from Site import views
+
 urlpatterns = [
     path('admin/', admin.site.urls, name="admin"),
     path('login/', views.index, name='index'),
     path('verify_otp/', views.verify_otp, name='verify_otp'),
-    path('site/<slug:slug>', views.site, name='site'),
-    path('site_template/', views.site_template, name='site_template'),
-    path('site/<int:site>', views.site, name='site_detail'),
+    path('wall/<slug:slug>', views.wall, name='wall'),
+    path('wall_template/', views.wall_template, name='wall_template'),
+    path('wall/<int:site>', views.wall, name='wall_detail'),
 ]
