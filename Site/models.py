@@ -34,7 +34,7 @@ class Circle(models.Model):
 
 class Wall(models.Model):
     name = models.CharField(max_length=255)
-    wall_link = models.SlugField(max_length=255, verbose_name='Wall Slug',blank=True, default="")
+    wall_link = models.SlugField(max_length=255, verbose_name='Wall Link',blank=True, default="")
     public = models.BooleanField(default=False)
     about_page = models.TextField(blank=True, null=True)
     tags = models.TextField(blank=True, null=True, help_text="Please add meta tags by comma seperate")

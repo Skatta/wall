@@ -2,10 +2,19 @@ from django.contrib import admin
 from .models import Wall, Section, SectionField, Template, Circle
 # Register your models here.
 from django.contrib import messages
+from django.utils.html import mark_safe
+from django.urls import reverse
 
 admin.site.site_header = 'Aapoon Wall'
 
 class WallAdmin(admin.ModelAdmin):
+
+    readonly_fields = ['wall_link_url']
+
+    def wall_link_url(self, obj):
+        url = reverse('wall', args=["test"])
+        return mark_safe("<a target='_new' href='%s'>%s</a>" % (url, url))
+
     def get_queryset(self, request):
         qs = super(WallAdmin, self).get_queryset(request)
         if request.user.is_superuser:
