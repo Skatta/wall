@@ -19,6 +19,7 @@ from Site import views
 
 urlpatterns = [
     path('admin/', admin.site.urls, name="admin"),
+    # path('admin/logout/', views.index, name='index'),
     path('login/', views.index, name='index'),
     path('verify_otp/', views.verify_otp, name='verify_otp'),
     path('wall/<slug:slug>', views.wall, name='wall'),
