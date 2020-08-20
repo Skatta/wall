@@ -8,8 +8,8 @@ from django.urls import reverse
 admin.site.site_header = 'Aapoon Wall'
 
 class WallAdmin(admin.ModelAdmin):
-
-    readonly_fields = ['wall_link_url']
+    list_display = ["name", "wall_link_url"]
+    # readonly_fields = ['wall_link_url']
     exclude = ['created_by']
 
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
@@ -22,7 +22,7 @@ class WallAdmin(admin.ModelAdmin):
 
 
     def wall_link_url(self, obj):
-        url = reverse('wall', args=["test"])
+        url = reverse('wall', args=[obj.wall_link])
         return mark_safe("<a target='_new' href='%s'>%s</a>" % (url, url))
 
     def get_queryset(self, request):
